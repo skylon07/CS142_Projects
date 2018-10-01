@@ -26,21 +26,34 @@ int main() {
 
 		// Process Selection
 		switch (userSelection) {
+			if (userSelection == MENU_QUIT) {
+				break;
+			}
 		case MENU_DROP_SINGLE:
-			// TODO
+			 //TODO
+			 break;
 
 		case MENU_DROP_MULTI:
-			// TODO
+			//TODO
+			break;
 
 		case MENU_SHOW_OPTIONS:
 			//TODO
+			break;
 
 		case MENU_QUIT:
 			//TODO
+			break;
 
 		default:
+		cout << "Invalid Selection" << endl;
+		cout << "Enter your Selection" << endl;
+		cin >> userSelection;
+		break;
 		}
 			   		 	  	  	   
 	}
+	cout << "Goodbye!";
+
 	return 0;
 }
