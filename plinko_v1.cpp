@@ -15,7 +15,7 @@ int main() {
 	const int MENU_QUIT = 4;
 	bool programRunning = true;
 
-	cout << "Welcome to the Plinko simulator!  Enter 3 to see options." << endl;
+	cout << "Welcome to the Plinko simulator! Enter 3 to see options." << endl;
 	cout << endl;
 
 	// Main Loop
