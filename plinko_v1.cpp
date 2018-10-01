@@ -14,6 +14,15 @@ int main() {
 	const int MENU_SHOW_OPTIONS = 3;
 	const int MENU_QUIT = 4;
 	bool programRunning = true;
+	//WHY NO USE ARRAY!?!?!?!?!
+	const int PRIZE0 = 100;
+	const int PRIZE1 = 500;
+	const int PRIZE2 = 1000;
+	const int PRIZE3 = 0;
+	const int PRIZE4 = 10000;
+	const int NUM_SLOTS = 9;
+
+	
 
 	cout << "Welcome to the Plinko simulator! Enter 3 to see options." << endl;
 	cout << endl;
@@ -30,8 +39,21 @@ int main() {
 				break;
 			}
 		case MENU_DROP_SINGLE:
-			 //TODO
-			 break;
+			int userSlot = 0;
+			cout << "*** Drop a single chip ***" << endl;
+			cout << endl;
+			cout << "Which slot would you like to drop the chip in (0-8)? " << endl;
+			cin >> userSlot;
+				
+			/*slot validation*/ 
+			if (userSlot < 0) {
+
+			}
+			if (userSlot >= NUM_SLOTS) {
+
+			}
+			//TODO
+			break;
 
 		case MENU_DROP_MULTI:
 			//TODO
@@ -46,12 +68,12 @@ int main() {
 			break;
 
 		default:
-		cout << "Invalid Selection" << endl;
-		cout << "Enter your Selection" << endl;
-		cin >> userSelection;
-		break;
+			cout << "Invalid Selection" << endl;
+			cout << "Enter your Selection" << endl;
+			cin >> userSelection;
+			break;
 		}
-			   		 	  	  	   
+
 	}
 	cout << "Goodbye!";
 
