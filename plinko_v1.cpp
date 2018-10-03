@@ -39,7 +39,7 @@ int main() {
 				break;
 			}
 		case MENU_DROP_SINGLE:
-			int userSlot = 0;
+			static int userSlot = 0;
 			cout << "*** Drop a single chip ***" << endl;
 			cout << endl;
 			cout << "Which slot would you like to drop the chip in (0-8)? " << endl;
