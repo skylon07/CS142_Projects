@@ -1,3 +1,5 @@
 *.out
 *.exe
 .vscode
+# kept detecting changes but couldnt find file...
+.DS_store
