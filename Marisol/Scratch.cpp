@@ -5,6 +5,9 @@
     #include <cstdlib>
     #include <chrono> 
     #include <vector>
+    #include <thread>
+    #include <ctime>
+
 
 using namespace std;
 
@@ -15,6 +18,13 @@ using namespace std;
             randval = randval % range;
             return randval + low; 
 
+        }
+
+        void sleepFor (int seconds){
+            for(int i = 0; i < seconds; i++){
+                system("timeout /t 1 >nul");
+            }
+            
         }
 
 
@@ -30,6 +40,7 @@ int main () {
         int randTruth;
         int randDare;
         int x = 0;
+        int numRounds = 30;
         string playerOne;
         string playerTwo;
         string playerThree;
@@ -51,8 +62,10 @@ int main () {
 
     // Welcome and gathering number of players
         cout << "Welcome to Truth or Dare" << endl;
-       while (programRunning)
-       { cout << "Please enter the number of Players (3 to 6 players needed)" << endl;
+
+        sleepFor(2);
+       
+       cout << "Please enter the number of Players (3 to 6 players needed)" << endl;
         cin  >> numPlayers;
 
         if (numPlayers < 3 || numPlayers > 6){
@@ -136,7 +149,8 @@ int main () {
                 cout << "Try again";
             break;
         }}
-    while ( x <= 7){
+    
+    while ( x <= numRounds){
         //Generate a random player
             randPlayer = ranint (0 , numPlayers - 1);
                 ranPlayer.push_back(playerOne);
@@ -146,93 +160,56 @@ int main () {
                 ranPlayer.push_back(playerFive);
                 ranPlayer.push_back(playerSix);
     // Getting Player Input
+   
         cout << ranPlayer [randPlayer] << " truth or dare?" << endl;
         getline(cin, playerInput);
 
    
     
-    // Truths
-        string truthOne   = "Descride your first crush (at least 3 traits)";
-        string truthTwo   = "What was the last lie you told?" ;
-        string truthThree = "Who would you date in our FHE group?";
-        string truthFour  = "What is your greatest fear?" ;
-        string truthFive  = "What are three things you have in common with a loaf of bread?";
-        string truthSix   = "What is your most embrassing fart story?";
-        string truthSeven = "What is the worse date you have ever been on?";
-        string truthEight = "What is one thing that you never want your parents to know about?";
-        string truthNine  = "What is the most childish thing you do?";
-        string truthTen   = "What is something that people would think you would never do, but you have?";
-        string truthEleven = "What is the dumbest thing you have done?";
-        string truthTwelve = "Who is the hottest (besides yourself) here?";
-        string truthThriteen = "When was the last time you picked your nose?";
-        string truthFourteen = "What is the longest you have worn the same pair of underwear?";
-        string truthFifteen  = "What is one thing that you would want to change about yourself?";
-        string truth16 = "What are you most self-conscious about?";
-        string truth17 = "What is the meanest you have been to someone that didn’t deserve it?";
-        string truth18 = "Where is the strangest place you have peed?";
-        string truth19 = "What is the scariest dream you have ever had?";
-        string truth20 = "What is something that you have never told anyone?";
-        string truth21 = "What would you do if you were the opposite gender for a day?"; 
-
-
-        ranTruth.push_back(truthOne);
-        ranTruth.push_back(truthTwo);
-        ranTruth.push_back(truthThree);
-        ranTruth.push_back(truthFour);
-        ranTruth.push_back(truthFive);
-        ranTruth.push_back(truthSix);
-        ranTruth.push_back(truthSeven);
-        ranTruth.push_back(truthEight);
-        ranTruth.push_back(truthNine);
-        ranTruth.push_back(truthTen);
-        ranTruth.push_back(truthEleven);
-        ranTruth.push_back(truthTwelve);
-        ranTruth.push_back(truthThriteen);
-        ranTruth.push_back(truthFourteen);
-        ranTruth.push_back(truthFifteen);
-        ranTruth.push_back(truth16);
-        ranTruth.push_back(truth17);
-        ranTruth.push_back(truth18);
-        ranTruth.push_back(truth19);
-        ranTruth.push_back(truth20);
-        ranTruth.push_back(truth21);
+    // Truth
+        ranTruth.push_back("Descride your first crush (at least 3 traits)");
+        ranTruth.push_back("What was the last lie you told?");
+        ranTruth.push_back("Who would you date in our FHE group?");
+        ranTruth.push_back("What is your greatest fear?" );
+        ranTruth.push_back("What are three things you have in common with a loaf of bread?");
+        ranTruth.push_back("What is your most embrassing fart story?");
+        ranTruth.push_back("What is the worse date you have ever been on?");
+        ranTruth.push_back("What is one thing that you never want your parents to know about?");
+        ranTruth.push_back("What is the most childish thing you do?");
+        ranTruth.push_back("What is something that people would think you would never do, but you have?");
+        ranTruth.push_back("What is the dumbest thing you have done?");
+        ranTruth.push_back("Who is the hottest (besides yourself) here?");
+        ranTruth.push_back("When was the last time you picked your nose?");
+        ranTruth.push_back("What is the longest you have worn the same pair of underwear?");
+        ranTruth.push_back("What is one thing that you would want to change about yourself?");
+        ranTruth.push_back("What are you most self-conscious about?");
+        ranTruth.push_back( "What is the meanest you have been to someone that didn’t deserve it?");
+        ranTruth.push_back("Where is the strangest place you have peed?");
+        ranTruth.push_back("What is the scariest dream you have ever had?");
+        ranTruth.push_back("What is something that you have never told anyone?");
+        ranTruth.push_back("What would you do if you were the opposite gender for a day?");
         
         
 
         randTruth = ranint(1,22);
 
     // Dares
-        string dareOne   = "Eat a slice of lemmon";
-        string dareTwo   = "I am a little teapot in the hallway at the top of your lungs";
-        string dareThree = "Put five marshmallows in your mouth and sing twinkle, twinkle, little start";
-        string dareFour  = "Take an embarrassing selfie and post it as your profile picture";
-        string dareFive  = "Go next door with a measuring cup and ask for a cup of sugar";
-        string dareSix   = "Howl like a wolf for 30 seconds in the hall";
-        string dareSeven = "Call your crush";
-        string dareEight = "Talk to a pillow like it's your crush";
-        string dareNine  = "Eat a tablespoon of Mayo";
-        string dareTen   = "Let someone text a random person in a contact list whatever they want";
-        string dareEleven = "Let someone go through phone for 2 minutes";
-        string dareTwelve = "Remove your socks with your teeth";
-        string dareThriteen = "Pick the nose of the person next to you.";
-        string dareFourteen = "Attempt to breakdance";
-        string dareFifteen = "Do your best impersonation of the person to your right";
-
-        ranDare.push_back(dareOne);
-        ranDare.push_back(dareTwo);
-        ranDare.push_back(dareThree);
-        ranDare.push_back(dareFour);
-        ranDare.push_back(dareFive);
-        ranDare.push_back(dareSix);
-        ranDare.push_back(dareSeven);
-        ranDare.push_back(dareEight);
-        ranDare.push_back(dareNine);
-        ranDare.push_back(dareTen);
-        ranDare.push_back(dareEleven);
-        ranDare.push_back(dareTwelve);
-        ranDare.push_back(dareThriteen);
-        ranDare.push_back(dareFourteen);
-        ranDare.push_back(dareFifteen);
+        ranDare.push_back("Eat a slice of lemmon");
+        ranDare.push_back("Sing I am a little teapot in the hallway at the top of your lungs");
+        ranDare.push_back("Put five marshmallows in your mouth and sing twinkle, twinkle, little star");
+        ranDare.push_back("Take an embarrassing selfie and post it as your profile picture");
+        ranDare.push_back("Go next door with a measuring cup and ask for a cup of sugar");
+        ranDare.push_back("Howl like a wolf for 30 seconds in the hall");
+        ranDare.push_back("Call your crush");
+        ranDare.push_back("Talk to a pillow like it's your crush");
+        ranDare.push_back("Eat a tablespoon of Mayo");
+        ranDare.push_back("Let someone go through phone for 2 minutes");
+        ranDare.push_back("Remove your socks with your teeth");
+        ranDare.push_back("Pick the nose of the person next to you.");
+        ranDare.push_back("Attempt to breakdance");
+        ranDare.push_back("Do your best impersonation of the person to your right");
+        ranDare.push_back("Spin around 10 times and try to run straight.");
+        ranDare.push_back("");
         randDare = ranint(1, 16);
    
 
@@ -247,7 +224,8 @@ int main () {
             cout << ranDare [randDare] << endl;
             cout << endl;
         }
-     x = x + 1;}
+     x = x + 1;
+    sleepFor(15);
      }
      return 0;
 }
