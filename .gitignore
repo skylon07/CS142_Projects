@@ -1,5 +1,6 @@
 *.out
 *.exe
 .vscode
+tempCodeRunnerFile.cpp
 # kept detecting changes but couldnt find file...
 .DS_store
