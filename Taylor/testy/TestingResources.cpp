@@ -1,6 +1,6 @@
 #pragma once
 
-class MyClass{
+class MyClass {
     private:
     int foo;
     
@@ -11,7 +11,7 @@ class MyClass{
     void setFoo(int);
 };
 
-MyClass::MyClass(){
+MyClass::MyClass() {
     foo = 0;
 }
 
