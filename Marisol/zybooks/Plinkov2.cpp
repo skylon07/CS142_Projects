@@ -2,6 +2,8 @@
 #include <iostream>
 #include <iomanip>
 
+using namespace std;
+
 // Menu constants
 	const int MENU_DROP_SINGLE = 1;
 	const int MENU_DROP_MULTI = 2;
@@ -66,7 +68,7 @@ double Total_Winnings (int chipPos){
 
 
 
-using namespace std;
+
 
 int main() {
 	int userSelection = 0;
@@ -74,16 +76,11 @@ int main() {
 
 	bool programRunning = true;
 
-	//WHY NO USE ARRAY!?!?!?!?!
-	const double PRIZE0 = 100.00;
-	const double PRIZE1 = 500.00;
-	const double PRIZE2 = 1000.00;
-	const double PRIZE3 = 0.00;
-	const double PRIZE4 = 10000.00;
+
 	double totWinnings = 0.0;
 	double avgWinnings = 0.0;
 
-	
+
 	 // 1 board height = 2 rows of pegs
 	int userSlot = 0;
 	int numChips = 0;
@@ -118,94 +115,17 @@ int main() {
 			cin >> userSlot;
 			cout << endl;
 
-			/*slot validation*/
-			if (userSlot < 0 || userSlot >= NUM_SLOTS) {
-				cout << "Invalid slot.";
-				break; // im needed!
-			}
 
-			else {
-				cout << "*** Dropping chip into slot " << userSlot << " ***" << endl;
-				chipPos = userSlot;
-
-				cout << setprecision(1) << "Path: [";
-				for ( unsigned int row = 0; row < (BOARD_HEIGHT * 2) ; ++row) {
-					cout << chipPos << ", "; 
-
-					// boundary setting
-					if (chipPos <= 0) {
-						chipPos = 0.5;
-					}
-					else if (chipPos >= NUM_SLOTS - 1) {
-						chipPos = NUM_SLOTS - 1.5;
-					}
-					// randomly bounce
-					else {
-
-						chipDir = rand() % 2;
-						chipPos += (int)chipDir - 0.5;
-					}
-				}
-				cout << chipPos << "]" << endl;
-
-				// set totWinnings with value
-				switch ((int) chipPos) {
-				case 0: 
-				case 8:
-					totWinnings = PRIZE0;
-					break;
-
-				case 1:
-				case 7:
-					totWinnings = PRIZE1;
-					break;
-
-				case 2:
-				case 6:
-					totWinnings = PRIZE2;
-					break;
-
-				case 3:
-				case 5:
-					totWinnings = PRIZE3;
-					break;
-
-				case 4:
-					totWinnings = PRIZE4;
-					break;
-				
-				default:
-					cout << "ERROR CHIPPOS SWITCH" << endl;
-				}
-
-				cout << setprecision(2) << "Winnings: $" << totWinnings << endl;
-
-			}
-
-			break;
-
-		case MENU_DROP_MULTI:
 			cout << "*** Drop multiple chips ***" << endl;
 			cout << endl;
 			cout << "How many chips do you want to drop (>0)? ";
 			cin >> numChips;
 			cout << endl;
 
-			// Number of chips validation
-			if (numChips <= 0) {
-				cout << "Invalid number of chips." << endl;
-				break; // needed dont delete
-			}
-
 			cout << "Which slot do you want to drop the chip in (0-8)? ";
 			cin >> userSlot;
 			cout << endl;
 
-			/*slot validation*/
-			if (userSlot < 0 || userSlot >= NUM_SLOTS) {
-				cout << "Invalid slot." << endl;
-				break; // im needed!
-			}
 
 			else {
 				// drop the chips
@@ -228,46 +148,8 @@ int main() {
 						}
 					}
 
-					// set totWinnings with value
-					switch ((int)chipPos) {
-					case 0:
-					case 8:
-						totWinnings += PRIZE0;
-						break;
-
-					case 1:
-					case 7:
-						totWinnings += PRIZE1;
-						break;
-
-					case 2:
-					case 6:
-						totWinnings += PRIZE2;
-						break;
-
-					case 3:
-					case 5:
-						totWinnings += PRIZE3;
-						break;
-
-					case 4:
-						totWinnings += PRIZE4;
-						break;
-
-					default:
-						cout << "ERROR CHIPPOS SWITCH" << endl;
-					}
-
 				}
 			}
-
-			avgWinnings = totWinnings / numChips;
-
-			cout << setprecision(2);
-			cout << "Total winnings on " << numChips << " chips: $" << totWinnings << endl;
-			cout << "Average winnings per chip: $" << avgWinnings << endl; 
-
-			break;
 
 		case MENU_SHOW_OPTIONS:
 			cout << "Menu: PLease select one of the following options: " << endl;
