@@ -3,4 +3,4 @@
 .vscode
 tempCodeRunnerFile.cpp
 # kept detecting changes but couldnt find file...
-.DS_store
+*.DS_store
