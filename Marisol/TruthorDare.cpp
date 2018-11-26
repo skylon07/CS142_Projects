@@ -189,8 +189,6 @@ int main () {
         ranTruth.push_back("What is something that you have never told anyone?");
         ranTruth.push_back("What would you do if you were the opposite gender for a day?");
         
-        
-
         randTruth = ranint(1,22);
 
     // Dares
@@ -211,7 +209,6 @@ int main () {
         ranDare.push_back("Spin around 10 times and try to run straight.");
         ranDare.push_back("");
         randDare = ranint(1, 16);
-   
 
 
     // Outputs Truth or Dare Question
