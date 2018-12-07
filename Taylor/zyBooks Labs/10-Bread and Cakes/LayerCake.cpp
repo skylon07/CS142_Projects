@@ -27,7 +27,7 @@ std::string LayerCake::ToInfoString() {
     infoString += GetCakeFlavor();
     infoString += " cake with ";
     infoString += GetFrostingFlavor();
-    infoString += " frosting (";
+    infoString += " frosting ($";
     infoString += PriceToStr(GetPrice());
     infoString += ")";
 
@@ -60,5 +60,5 @@ double LayerCake::CalcDiscountedPrice(int numSameItems) {
         discountedPrice = 2.0;
     }
 
-    return CalcPrice() - (discountedPrice * numSameItems);
+    return (CalcPrice() - discountedPrice) * numSameItems;
 }

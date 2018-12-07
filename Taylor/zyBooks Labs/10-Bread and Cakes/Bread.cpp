@@ -23,7 +23,7 @@ void Bread::SetBreadType(std::string newBreadType) {
 std::string Bread::ToInfoString() {
     std::string infoString;
     infoString += GetBreadType();
-    infoString += " bread (";
+    infoString += " bread ($";
     infoString += PriceToStr(GetPrice());
     infoString += ")";
 

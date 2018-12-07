@@ -27,7 +27,7 @@ std::string CupCake::ToInfoString() {
     infoString += GetFrostingFlavor();
     infoString += " frosting and ";
     infoString += GetSprinklesColor();
-    infoString += " sprinkles (";
+    infoString += " sprinkles ($";
     infoString += PriceToStr(GetPrice());
     infoString += ")";
 
@@ -41,7 +41,7 @@ double CupCake::CalcPrice() {
     double cheeseFrostingPrice = 0.20;
 
     // adds cheese frosting price if the cupcake has cream cheese
-    return (GetFrostingFlavor() == "cream-cheese") ? basePrice : (basePrice + cheeseFrostingPrice);
+    return (GetFrostingFlavor() == "cream-cheese") ? (basePrice + cheeseFrostingPrice) : basePrice;
 }
 
 // calculates the discounted price given the number of same items
@@ -58,5 +58,5 @@ double CupCake::CalcDiscountedPrice(int numSameItems) {
         discountedPrice = 0.40;
     }
 
-    return CalcPrice() - (discountedPrice * numSameItems);
+    return (CalcPrice() - discountedPrice) * numSameItems;
 }

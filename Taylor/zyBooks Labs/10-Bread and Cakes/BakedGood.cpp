@@ -28,10 +28,24 @@ void BakedGood::SetPrice(double newPrice) {
 }
 
 
+// manipulators for multiples of simmilar items
+int BakedGood::GetSizeGroup() {
+    return numItemsInGroup;
+}
+
+void BakedGood::SetSizeGroup(int newSize) {
+    numItemsInGroup = newSize;
+}
+
+void BakedGood::IncSizeGroup() {
+    SetSizeGroup(GetSizeGroup() + 1);
+}
+
+
 // calculates price and formats into a string
 std::string BakedGood::PriceToStr(double priceToConvert) {
     // converts raw double to a string (with money sign)
-    std::string priceStr = '$' + std::to_string(priceToConvert);
+    std::string priceStr = std::to_string(priceToConvert);
     
     // price is two decimal places; strip off all floating zeros left by to_string()
     priceStr.erase(priceStr.find_last_not_of('0') + 1, std::string::npos);
